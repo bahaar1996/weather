@@ -32,7 +32,7 @@ const Search = () => {
   }
   return (
     <>
-      <div className="flex justify-center gap-4 mt-7">
+      <div className="md:flex md:justify-center gap-4 mt-7">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2 p-2 rounded-lg border-0 bg-white/10">
             <Image src={SearchIcon} alt="searchIcon" className="w-4 h-4" />
@@ -71,7 +71,7 @@ const Search = () => {
         </div>
         <Button
           onClick={handleSearch}
-          className="bg-blue-800 text-white rounded-lg px-3 max-h-10"
+          className="bg-blue-800 text-white rounded-lg px-3 w-full h-11 mt-2 md:w-fit md:max-h-10 md:mt-0"
         >
           جستجو
         </Button>
