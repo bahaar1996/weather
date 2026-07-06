@@ -30,11 +30,13 @@ const Search = () => {
     setIsOpen(false);
     setSelectedCity(city);
   }
+  console.log("API KEY:", process.env.WEATHER_API_KEY);
+  console.log("env keys:", Object.keys(process.env));
   return (
     <>
       <div className="md:flex md:justify-center gap-4 mt-7">
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-2 p-2 rounded-lg border-0 bg-white/10">
+          <div className="flex items-center gap-2 p-2 rounded-lg border-0 bg-white/10 overflow-hidden">
             <Image src={SearchIcon} alt="searchIcon" className="w-4 h-4" />
             <input
               value={query}

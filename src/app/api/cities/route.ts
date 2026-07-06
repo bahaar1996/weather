@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
+console.log("333333333333", process.env.WEATHER_API_KEY);
 export async function GET(req: NextRequest) {
   try {
     const search = req.nextUrl.searchParams.get("search");
@@ -11,6 +11,7 @@ export async function GET(req: NextRequest) {
       { signal: req.signal },
     );
     const data = await response.json();
+    console.log("data", data);
     const cities = data.map(
       (item: { id: number; name: string; country: string }) => ({
         id: item.id,

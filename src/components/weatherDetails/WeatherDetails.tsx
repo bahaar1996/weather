@@ -20,7 +20,7 @@ const WeatherDetails = ({ weather }) => {
   });
 
   return (
-    <div className="grid grid-cols-12 mt-7 gap-4">
+    <div className="flex flex-col md:grid md:grid-cols-12 md:mt-7 md:gap-4">
       <aside className="col-span-3 row-span-2 rounded-lg bg-white/10 p-4">
         <div className="flex justify-between">
           <h3 className="font-bold">پیش بینی ساعتی</h3>
