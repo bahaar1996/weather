@@ -7,7 +7,7 @@ import { FormatToJalali } from "@/utils/date";
 const Forecast = ({ day }) => {
   const { tempState } = useUnits();
   return (
-    <div className="flex flex-col gap-1 items-center rounded-lg bg-white/10 py-2 px-5">
+    <div className="flex flex-col w-34 md:w-35  items-center rounded-lg bg-white/10 py-2 px-5">
       <div className="px-4">
         {FormatToJalali(day.date, "EEEE") ?? "روز های هفته"}
       </div>

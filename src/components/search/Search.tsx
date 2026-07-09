@@ -37,7 +37,7 @@ const Search = () => {
       <div className="md:flex md:justify-center gap-4 mt-7">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2 p-2 rounded-lg border-0 bg-white/10 overflow-hidden">
-            <Image src={SearchIcon} alt="searchIcon" className="w-4 h-4" />
+            <Image src={SearchIcon} alt="searchIcon" className="w-4 h-4 mr-3" />
             <input
               value={query}
               onFocus={() => setIsOpen(true)}

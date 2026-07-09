@@ -5,3 +5,4 @@ export { default as SearchIcon } from "./icon-search.svg";
 export { default as BgLarge } from "./bg-today-large.svg";
 export { default as SnowIcon } from "./icon-snow.webp";
 export { default as SunnyIcon } from "./icon-sunny.webp";
+export { default as BgSmall } from "./bg-today-small.svg";

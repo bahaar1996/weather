@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { BgLarge } from "../../../public/images";
+import { BgLarge, BgSmall } from "../../../public/images";
 import { useTranslations } from "use-intl";
 import { FormatToJalali } from "@/utils/date";
 import { Temp } from "@/constants/consts";
@@ -9,9 +9,11 @@ const CurrentWeather = ({ weather }) => {
   const { location, current } = weather;
   const { tempState } = useUnits();
   const t = useTranslations();
+  console.log("bg large", BgLarge);
+  console.log("type of bglarge", typeof BgLarge);
   return (
-    <div>
-      <div className="flex gap-2 justify-between items-center absolute z-2 left-15 top-100 right-120">
+    <div className="relative">
+      <div className="flex flex-col gap-2 md:flex-row md:justify-between items-center absolute z-2 left-0 right-0 top-[30%] md:left-[5%] md:top-[30%] md:right-[5%] ">
         <div>
           <div className="text-4xl">
             {t(location.name)}، {t(location.country)}{" "}
@@ -21,7 +23,7 @@ const CurrentWeather = ({ weather }) => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <div className="text-[70px]">
+          <div className="text-4xl">
             {tempState === Temp.C ? current.temp_c : current.temp_f}°
           </div>
           <Image
@@ -32,7 +34,15 @@ const CurrentWeather = ({ weather }) => {
           />
         </div>
       </div>
-      <Image src={BgLarge} alt="bg-large" className="w-287.5 relative" />
+      <picture>
+        <source
+          media="(min-width:650px)"
+          srcSet={BgLarge.src}
+          className="w-full"
+        />
+        <source media="(min-width:465px)" srcSet={BgSmall.src} />
+        <img src={BgSmall.src} className="w-full " />
+      </picture>
     </div>
   );
 };

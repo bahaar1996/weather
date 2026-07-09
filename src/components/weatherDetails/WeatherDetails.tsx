@@ -20,8 +20,8 @@ const WeatherDetails = ({ weather }) => {
   });
 
   return (
-    <div className="flex flex-col md:grid md:grid-cols-12 md:mt-7 md:gap-4">
-      <aside className="col-span-3 row-span-2 rounded-lg bg-white/10 p-4">
+    <div className="grid grid-cols-12 mt-7 gap-4 min-[768px]:max-[968px]:flex min-[768px]:max-[968px]:flex-col">
+      <aside className="col-span-3 row-span-2 rounded-lg bg-white/10 p-4 hidden lg:block">
         <div className="flex justify-between">
           <h3 className="font-bold">پیش بینی ساعتی</h3>
           <div className="bg-white/10 rounded-lg p-1">
@@ -32,11 +32,11 @@ const WeatherDetails = ({ weather }) => {
           <HourlyForecast key={hourly.time} hourly={hourly} />
         ))}
       </aside>
-      <section className="col-span-9 justify-self-end">
+      <section className="col-span-12 w-full md:col-span-9 md:justify-self-end">
         <CurrentWeather weather={weather} />
       </section>
-      <section className="col-span-9">
-        <section className="flex justify-between">
+      <section className="md:col-span-9 col-span-12">
+        <section className="flex flex-wrap gap-3 w-full md:justify-between items-center md:flex-row">
           <Weather data={weather.current.feelslike_c} title={t("feelsLike")} />
           <Weather data={`${weather.current.wind_mph}mph`} title={t("wind")} />
           <Weather
@@ -50,13 +50,24 @@ const WeatherDetails = ({ weather }) => {
         </section>
         <section className="mt-8">
           <h3 className="my-3 font-bold">پیش بینی روزانه</h3>
-          <div className="flex justify-between">
+          <div className="flex flex-wrap gap-3 md:gap-6  md:flex-row">
             {weather.forecast?.forecastday.map((day) => (
               <Forecast key={day.date} day={day} />
             ))}
           </div>
         </section>
       </section>
+      <aside className="col-span-12 row-span-2 rounded-lg bg-white/10 p-4 md:hidden">
+        <div className="flex justify-between">
+          <h3 className="font-bold">پیش بینی ساعتی</h3>
+          <div className="bg-white/10 rounded-lg p-1">
+            <Week getDayOfWeek={getDayOfWeek} daysOfWeek={daysOfWeek} />
+          </div>
+        </div>
+        {findDay?.hour?.slice(0, 9).map((hourly) => (
+          <HourlyForecast key={hourly.time} hourly={hourly} />
+        ))}
+      </aside>
     </div>
   );
 };
