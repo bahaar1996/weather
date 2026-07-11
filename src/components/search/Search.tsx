@@ -35,8 +35,8 @@ const Search = () => {
   return (
     <>
       <div className="md:flex md:justify-center gap-4 mt-7">
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-2 p-2 rounded-lg border-0 bg-white/10 overflow-hidden">
+        <div className="relative flex flex-col gap-2">
+          <div className=" flex items-center gap-2 p-2 rounded-lg border-0 bg-white/10 overflow-hidden">
             <Image src={SearchIcon} alt="searchIcon" className="w-4 h-4 mr-3" />
             <input
               value={query}
@@ -52,7 +52,7 @@ const Search = () => {
             لطفا نام شهر را به انگلیسی وارد کنید
           </div>
           {isOpen && (
-            <div className="rounded-lg border-0 bg-neutral-800 ">
+            <div className="rounded-lg border-0 bg-neutral-800 absolute top-full right-0 left-0 z-50">
               {cities.map((city) => (
                 <div
                   key={city.id}
@@ -66,7 +66,7 @@ const Search = () => {
           )}
           {isLoadingCities && (
             <SpinComponent
-              styles="flex justify-center items-center mt-2"
+              styles="absolute right-0 left-0 top-13 -translate-y-1/2 flex justify-center items-center mt-2"
               size="large"
             />
           )}
